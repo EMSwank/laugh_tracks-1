@@ -1,9 +1,9 @@
 describe "visitor" do
   context "visits comedian index page" do
     it "and sees a list of comedians with Name and Age" do
-      comedian = Comedian.new(name: "Eddie Murphy", age: 55)
+      comedian = Comedian.create(name: "Eddie Murphy", age: 55)
 
-      visit '/'
+      visit '/comedians'
 
       expect(page).to have_content(comedian.name) 
       expect(page).to have_content(comedian.age) 
