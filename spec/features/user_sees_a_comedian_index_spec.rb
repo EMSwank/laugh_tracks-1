@@ -8,6 +8,15 @@ describe "visitor" do
       expect(page).to have_content(comedian.name) 
       expect(page).to have_content(comedian.age) 
     end
+
+    it "and sees a list of comedians with Name and Age" do
+      comedian = Comedian.create(name: "Eddie Murphy", age: 55)
+      special = comedian.specials.create(name: "Delirious")
+
+      visit '/comedians'
+
+      expect(page).to have_content(special.name) 
+    end
   end
 end
 
@@ -17,9 +26,6 @@ end
 =begin
 As a visitor,
 When I visit `/comedians`
-Then I see a list of comedians with the following
-information for each comedian:
-  * Name
-  * Age
+Then I also see a list of each comedian's specials.
 
 =end
