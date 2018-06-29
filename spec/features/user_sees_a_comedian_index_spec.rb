@@ -26,6 +26,15 @@ describe "visitor" do
 
       expect(page).to have_content(average_age) 
     end
+    it "and sees a list of all comedians with an age of 34." do
+      comedian1 = Comedian.create(name: "Carrot Top", age: 50)
+      comedian2 = Comedian.create(name: "Seth Rogan", age: 34)
+
+      visit '/comedians?age=34'
+
+      expect(page).to_not have_content(comedian1.name) 
+      expect(page).to have_content(comedian2.name) 
+    end
   end
 end
 
@@ -34,7 +43,7 @@ end
 
 =begin
 As a visitor,
-When I visit `/comedians`
-Then I also see the average age for all comedians.
+when I visit `/comedians?age=34`
+Then I see a list of all comedians with an age of 34.
 
 =end
