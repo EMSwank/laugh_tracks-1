@@ -11,7 +11,7 @@ describe "visitor" do
 
     it "and sees a list of comedians with Name and Age" do
       comedian = Comedian.create(name: "Eddie Murphy", age: 55)
-      special = comedian.specials.create(name: "Delirious")
+      special = Special.create(name: "Delirious", comedian_id: comedian.id)
 
       visit '/comedians'
 
