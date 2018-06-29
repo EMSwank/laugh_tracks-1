@@ -3,10 +3,11 @@
 <% @comedians.each do |c| %>
   <%=c.name%>
   <%=c.age%>
-<%end%>
 
-<% @specials.each do |s| %>
+  <% c.specials.each do |s|%>
   <%= s.name %>
+  <% end %>
+
 <%end%>
 
 <%= @average_age %>
