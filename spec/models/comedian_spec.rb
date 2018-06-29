@@ -12,4 +12,15 @@ RSpec.describe Comedian do
       end
     end
   end
+  describe "Class methods" do
+    it ".average_age" do
+      comedian1 = Comedian.create(name: "Eddie Murphy", age: 50)
+      comedian2 = Comedian.create(name: "Seth Rogan", age: 40)
+      average_age = 45
+
+      expect(Comedian.average_age).to eq(average_age)
+    end
+    
+  end
+  
 end
